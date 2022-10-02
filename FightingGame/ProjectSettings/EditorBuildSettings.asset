@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/player1Turn.unity
     guid: 87469c455c2e0044388c20c59acc04be
+  - enabled: 1
+    path: Assets/Scenes/p1LowpunchHit.unity
+    guid: e1c06baf50b01d8429386a264a23d1e3
+  - enabled: 1
+    path: Assets/Scenes/p1LowpunchMiss.unity
+    guid: 2ef144f4b24e2674485ada3724367376
   m_configObjects: {}

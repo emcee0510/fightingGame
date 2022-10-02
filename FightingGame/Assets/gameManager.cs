@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Mathematics;
+using Random = UnityEngine.Random;
 
 public class gameManager : MonoBehaviour
 {
@@ -12,6 +14,11 @@ public class gameManager : MonoBehaviour
     public static int P2Health;
     public static String PlayerOne;
     public static String PlayerTwo;
+    public static int random;
+    public float timeDelayed;
+
+
+
     public GameObject p1HP;
     public GameObject p2HP;
     public GameObject Player1;
@@ -21,6 +28,8 @@ public class gameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+
+        
         
     }
 
@@ -34,8 +43,19 @@ public class gameManager : MonoBehaviour
     }
 
     void FixedUpdate(){
-
+    
        
+    }
+
+    void randomizer()
+    {
+        random = Random.Range(1, 100);
+    }
+
+    IEnumerator DelayedPlayback()
+    {
+        yield return new WaitForSeconds(timeDelayed);
+        // everything below will be delayed for 2secs
     }
 
     public void Inputs()
@@ -58,4 +78,25 @@ public class gameManager : MonoBehaviour
         P2Health = 100;     
     }
 
-}
+    public void P1lowpunch()
+    {
+        randomizer();
+        timeDelayed = 30f;
+        if (random < 76)
+        {
+            SceneManager.LoadScene(2);
+            StartCoroutine(DelayedPlayback());
+            P2Health -= 3;
+            SceneManager.LoadScene(1);
+            
+
+        } else
+        {
+            SceneManager.LoadScene(3);
+            StartCoroutine(DelayedPlayback());
+            SceneManager.LoadScene(1);
+        }
+    }
+
+    
+}//class
