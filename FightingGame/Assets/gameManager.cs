@@ -95,6 +95,7 @@ public class gameManager : MonoBehaviour
             SceneManager.LoadScene(3);
             StartCoroutine(DelayedPlayback());
             SceneManager.LoadScene(1);
+            
         }
     }
 
